@@ -8,5 +8,8 @@ all:
 t:
 	clang-format -n *.cc
 	clang-format -i *.cc
-	$(CC) $(CFLAGS) test.cc -o t
-	./t
+	$(CC) $(CFLAGS) test.cc -o t.out
+	./t.out
+
+clean:
+	rm -rf *.o *.out
