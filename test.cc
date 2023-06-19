@@ -30,7 +30,7 @@ template <typename T> T Sum(T a, T b) { return a + b; }
 int main(int argc, char const *argv[]) {
   if (argc > 0 || argv[0]) {
     cout << Sum(4, 4) << " Sum 4 + 4" << endl;
-    cout << Sum(4.5, 4.1) << " Sum 4 + 4" << endl;
+    cout << Sum(4.5, 4.1) << " Sum 4.5 + 4.1" << endl;
   }
   Point first;
   return 0;
