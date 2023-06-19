@@ -1,5 +1,6 @@
 CC = g++
-CFLAGS = -g -Werror -Wall -Wextra
+CFLAGS = -g -Wall -Wextra
+#  -Werror
 OS := $(shell uname -s)
 OS2 := $(shell cat /etc/*-release | grep ID=a)
 

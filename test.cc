@@ -5,23 +5,34 @@
 #include <iostream>
 
 class Point;
+class UnicPoint;
 
 class Point {
 public:
-  Point() {};
-  ~Point() {};
+  Point(){};
+  ~Point(){};
+  double GetPointX() { return x_; }
+  double GetPointY() { return y_; }
+  int GetPointCounter() { return counter_; }
+
 private:
   int counter_{};
   double x_{}, y_{};
-  Point(double x, double y, int counter) {};
-};
+  Point(double x, double y, int counter){};
+}; // class Point
 
-class UnicPoint {
-  private:
-    int count_;
-    UnicPoint() {
+class OnlyOne {
+public:
+  static OnlyOne &Instance() {
+    static OnlyOne theSingleInstance;
+    return theSingleInstance;
   }
-};
+
+private:
+  OnlyOne() {}
+  OnlyOne(const OnlyOne &root) = delete;
+  OnlyOne &operator=(const OnlyOne &) = delete;
+}; // class OnlyOne
 
 using namespace std;
 
