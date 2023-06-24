@@ -51,8 +51,7 @@ public:
    */
   void SomeBusinessLogic() {
     // ...
-    std::cout << "Some very important buisness function start." << this
-              << std::endl;
+    std::cout << "Some important buisness function start." << this << std::endl;
   }
   std::string value() const { return value_; }
 }; // Class Singleton
