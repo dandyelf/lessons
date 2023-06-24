@@ -51,7 +51,8 @@ public:
    */
   void SomeBusinessLogic() {
     // ...
-    std::cout << "Some very important buisness function start." << std::endl;
+    std::cout << "Some very important buisness function start." << this
+              << std::endl;
   }
   std::string value() const { return value_; }
 }; // Class Singleton
@@ -86,6 +87,9 @@ int main(int argc, char const *argv[]) {
   Singleton *sing = Singleton::GetInstance("BOO");
   std::cout << sing->value() << std::endl;
   sing->SomeBusinessLogic();
+  Singleton *sing2 = Singleton::GetInstance("BOOooom");
+  std::cout << sing2->value() << std::endl;
+  sing2->SomeBusinessLogic();
   return 0;
 }
 
