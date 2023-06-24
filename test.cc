@@ -7,23 +7,7 @@
 void ThreadFoo();
 void ThreadBar();
 
-using namespace std;
-
 template <typename T> T Sum(T a, T b) { return a + b; }
-
-int main(int argc, char const *argv[]) {
-  std::cout << "If you see the same value, then singleton was reused (yay!\n"
-            << "If you see different values, then 2 singletons were created "
-               "(booo!!)\n\n"
-            << "RESULT:\n";
-  ThreadFoo();
-  ThreadBar();
-  if (argc > 0 || argv[0]) {
-    cout << Sum(4, 4) << " Sum 4 + 4" << endl;
-    cout << Sum(4.5, 4.1) << " Sum 4.5 + 4.1" << endl;
-  }
-  return 0;
-}
 
 /**
  * The Singleton class defines the `GetInstance` method that serves as an
@@ -67,13 +51,12 @@ public:
    */
   void SomeBusinessLogic() {
     // ...
+    std::cout << "Some very important buisness function start." << std::endl;
   }
-
   std::string value() const { return value_; }
 }; // Class Singleton
 
 Singleton *Singleton::singleton_ = nullptr;
-;
 
 /**
  * Static methods should be defined outside the class.
@@ -87,6 +70,23 @@ Singleton *Singleton::GetInstance(const std::string &value) {
     singleton_ = new Singleton(value);
   }
   return singleton_;
+}
+
+int main(int argc, char const *argv[]) {
+  std::cout << "If you see the same value, then singleton was reused (yay!\n"
+            << "If you see different values, then 2 singletons were created "
+               "(booo!!)\n\n"
+            << "RESULT:\n";
+  ThreadFoo();
+  ThreadBar();
+  if (argc > 0 || argv[0]) {
+    std::cout << Sum(4, 4) << " Sum 4 + 4" << std::endl;
+    std::cout << Sum(4.5, 4.1) << " Sum 4.5 + 4.1" << std::endl;
+  }
+  Singleton *sing = Singleton::GetInstance("BOO");
+  std::cout << sing->value() << std::endl;
+  sing->SomeBusinessLogic();
+  return 0;
 }
 
 void ThreadFoo() {
