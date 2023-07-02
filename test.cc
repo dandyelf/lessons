@@ -32,7 +32,7 @@ class Singleton {
 protected:
   Singleton(const std::string value) : value_(value) {}
 
-  static Singleton *singleton_;
+  // static Singleton *singleton_;
 
   std::string value_;
 
@@ -67,11 +67,12 @@ public:
   inline void IncreaseCounter() { ++counter; };
 
 private:
+  static inline Singleton *singleton_ = nullptr;
   int counter{};
 }; // Class Singleton
 
 int Singleton::a = 5;
-Singleton *Singleton::singleton_ = nullptr;
+// Singleton *Singleton::singleton_ = nullptr;
 /**
  * Static methods should be defined outside the class.
  */
